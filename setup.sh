@@ -7,6 +7,7 @@
 # Run this script
 
 username=$(whoami)
+echo "Current user is $username"
 
 mkdir -p ~/.ssh
 echo "Enter public key for login:"
