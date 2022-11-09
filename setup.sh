@@ -1,10 +1,20 @@
 # Setup Ubuntu host from scratch
+# Designed to run this repeatedly with no bad side effects
 
-# First login as root and create a new user with sudo privileges
+# Before running this, login as root and create a new user with sudo privileges.
 # - adduser name
 # - usermod -aG sudo name
-# Login as name
-# Run this script
+
+# Then login as the new user.
+# - `ssh-keygen -t ed25519 -C "email@example.com"`
+# - Add ~/.ssh/id_ed25519.pub to github ssh keys
+# - sudo apt install git-core
+# - git clone git@github.com:(repo)
+
+# Go the repo directory and run this script.
+
+# exit on any errors
+set -e
 
 username=$(whoami)
 echo "Current user is $username"
@@ -36,12 +46,13 @@ sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
+# get cert from let's encrypt
 if [ ! -f /etc/letsencrypt/live/$uvtek_hostname/cert.pem ]; then
     sudo certbot --nginx
 fi
 
-# nginx config
-cp nginx/sites-available/default /etc/nginx/sites-available
+# finalize nginx config
+sudo cp nginx/sites-available/default /etc/nginx/sites-available
 sudo systemctl restart nginx
 
 echo "*** Reminders ***"
