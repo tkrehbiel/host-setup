@@ -45,7 +45,7 @@ fi
 # install nginx
 sudo apt install nginx
 sudo ufw allow 443
-sudo ufw allow 8080
+sudo ufw allow 80
 
 # install certbot
 sudo apt install snapd
@@ -57,7 +57,9 @@ fi
 
 # get cert from let's encrypt
 if [ ! -f /etc/letsencrypt/live/$uvtek_hostname/cert.pem ]; then
-    sudo certbot --nginx
+    # depends on getting a domain name hooked up to the server
+    #sudo certbot --nginx
+    echo "There is no Let's Encrypt certificate yet."
 fi
 
 # finalize nginx config
