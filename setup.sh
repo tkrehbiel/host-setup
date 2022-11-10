@@ -63,7 +63,7 @@ if [ ! -f /etc/letsencrypt/live/$uvtek_hostname/cert.pem ]; then
 fi
 
 # finalize nginx config
-sudo cp nginx/sites-available/default /etc/nginx/sites-available
+sudo envsubst <nginx/sites-available/default.template >/etc/nginx/sites-available
 sudo systemctl restart nginx
 
 echo "*** Reminders ***"
