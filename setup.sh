@@ -6,6 +6,13 @@
 # - usermod -aG sudo name
 
 # Then login as the new user.
+
+# Test sudo access.
+# sudo apt update
+# sudo apt upgrade
+# sudo nano /etc/ssh/sshd_config
+# Set `PermitRootLogin no`
+
 # - `ssh-keygen -t ed25519 -C "email@example.com"`
 # - Add ~/.ssh/id_ed25519.pub to github ssh keys
 # - sudo apt install git-core
