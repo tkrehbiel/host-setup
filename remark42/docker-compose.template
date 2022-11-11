@@ -2,7 +2,6 @@ version: "2"
 
 services:
   remark:
-    build: .
     image: umputun/remark42:latest
     container_name: "remark42"
     hostname: "remark42"
