@@ -74,6 +74,10 @@ sudo cp sub.txt /etc/nginx/sites-enabled/default
 rm -f sub.txt
 sudo systemctl restart nginx
 
+# setup remark42
+sudo apt install docker-compose
+envsubst <remark42/docker-compose.template >remark42/docker-compose.yml
+
 set +x
 
 echo "*** Reminders ***"
