@@ -62,14 +62,14 @@ fi
 if [ ! -f /etc/letsencrypt/live/$uvtek_hostname/cert.pem ]; then
     # depends on getting a domain name hooked up to the server
     #sudo certbot --nginx
-    set +x
     echo "There is no Let's Encrypt certificate yet."
-    set -x
 fi
 
 # finalize nginx config
 sudo systemctl stop nginx
-sudo envsubst < nginx/default.template > /etc/nginx/sites-available/default
+sudo rm /etc/nginx/sites-enabled/default
+sudo rm /etc/nginx/sites-available/default
+sudo envsubst < nginx/default.template > /etc/nginx/sites-enabled/default
 sudo systemctl restart nginx
 
 set +x
