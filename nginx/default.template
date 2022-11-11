@@ -19,19 +19,19 @@
 # Default server configuration
 #
 server {
-        #listen 80 default_server;
-        #listen [::]:80 default_server;
-
-        server_name ${uvarovite_hostname};
+        listen 80 default_server;
+        listen [::]:80 default_server;
 
         # SSL configuration
-        
-        listen 443 ssl default_server;
-        listen [::]:443 ssl default_server;
-        ssl on;
+        #listen 443 ssl default_server;
+        #listen [::]:443 ssl default_server;
+        #ssl on;
         #ssl_certificate /etc/letsencrypt/live/${uvarovite_hostname}/cert.pem;
         #ssl_certificate_key /etc/letsencrypt/live/${uvarovite_hostname}/privkey.pem;
+        #gzip off;
         
+        server_name ${uvarovite_hostname};
+
         # Note: You should disable gzip for SSL traffic.
         # See: https://bugs.debian.org/773332
         #
