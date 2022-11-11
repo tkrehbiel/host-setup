@@ -19,17 +19,18 @@
 # Default server configuration
 #
 server {
-        listen 8080 default_server;
-        listen [::]:8080 default_server;
+        #listen 80 default_server;
+        #listen [::]:80 default_server;
+
+        server_name ${uvarovite_hostname};
 
         # SSL configuration
         
         listen 443 ssl default_server;
         listen [::]:443 ssl default_server;
-        server_name ${uvarovite_hostname};
         ssl on;
-        ssl_certificate /etc/letsencrypt/live/${uvarovite_hostname}/cert.pem;
-        ssl_certificate_key /etc/letsencrypt/live/${uvarovite_hostname}/privkey.pem;
+        #ssl_certificate /etc/letsencrypt/live/${uvarovite_hostname}/cert.pem;
+        #ssl_certificate_key /etc/letsencrypt/live/${uvarovite_hostname}/privkey.pem;
         
         # Note: You should disable gzip for SSL traffic.
         # See: https://bugs.debian.org/773332
@@ -46,8 +47,6 @@ server {
 
         # Add index.php to the list if you are using PHP
         index index.html index.htm index.nginx-debian.html;
-
-        server_name _;
 
         location / {
                 # First attempt to serve request as file, then

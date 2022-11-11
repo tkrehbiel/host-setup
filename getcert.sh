@@ -8,4 +8,5 @@ if [ ! -f /etc/letsencrypt/live/$uvtek_hostname/cert.pem ]; then
     echo "There is no Let's Encrypt certificate yet."
 fi
 
+set -x
 sudo certbot --nginx
