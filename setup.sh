@@ -26,6 +26,9 @@ set -e
 username=$(whoami)
 echo "Current user is $username"
 
+# display commands
+set -x
+
 sudo apt update
 sudo apt upgrade
 
@@ -59,12 +62,14 @@ fi
 if [ ! -f /etc/letsencrypt/live/$uvtek_hostname/cert.pem ]; then
     # depends on getting a domain name hooked up to the server
     #sudo certbot --nginx
-    echo "There is no Let's Encrypt certificate yet."
+    set +x; echo "There is no Let's Encrypt certificate yet."; set -x
 fi
 
 # finalize nginx config
-sudo envsubst < nginx/sites-available/default.template > /etc/nginx/sites-available/default
+sudo envsubst < nginx/default.template > /etc/nginx/sites-available/default
 sudo systemctl restart nginx
+
+set +x
 
 echo "*** Reminders ***"
 echo "Disable root and password login: /etc/ssh/sshd_config"
