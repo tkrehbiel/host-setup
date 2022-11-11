@@ -75,8 +75,9 @@ rm -f sub.txt
 sudo systemctl restart nginx
 
 # setup remark42
-sudo apt install docker-compose
+sudo apt install noip2 docker-compose
 envsubst <remark42/docker-compose.template >remark42/docker-compose.yml
+echo "To Start remark42 -- cd remark42; ./restart.sh"
 
 set +x
 
