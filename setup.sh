@@ -67,8 +67,8 @@ fi
 
 # finalize nginx config
 sudo systemctl stop nginx
-sudo rm /etc/nginx/sites-enabled/default
-sudo rm /etc/nginx/sites-available/default
+sudo rm -f /etc/nginx/sites-enabled/default
+sudo rm -f /etc/nginx/sites-available/default
 sudo envsubst < nginx/default.template > /etc/nginx/sites-enabled/default
 sudo systemctl restart nginx
 
