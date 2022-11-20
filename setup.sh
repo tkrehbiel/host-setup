@@ -53,8 +53,6 @@ if [ ! -f /usr/local/go ]; then
     sudo tar -xzf go1.19.3.linux-amd64.tar.gz -C /usr/local/
 fi
 
-sudo apt install golang
-
 # install nginx
 sudo apt install nginx
 sudo ufw allow 443
