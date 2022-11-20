@@ -48,6 +48,11 @@ if [ ! -f ~/.ssh/authorized_keys ]; then
 fi
 
 # install golang
+if [ ! -f /usr/local/go ]; then
+    wget https://golang.google.cn/dl/go1.19.3.linux-amd64.tar.gz
+    sudo tar -xzf go1.19.3.linux-amd64.tar.gz -C /usr/local/
+fi
+
 sudo apt install golang
 
 # install nginx
