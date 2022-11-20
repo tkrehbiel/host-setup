@@ -4,7 +4,7 @@
 # http://www.domainname/.well-known/...
 
 # get cert from let's encrypt
-if [ ! -f /etc/letsencrypt/live/$uvtek_hostname/cert.pem ]; then
+if [ ! -f /etc/letsencrypt/live/$uvarovite_hostname/cert.pem ]; then
     echo "There is no Let's Encrypt certificate yet."
 fi
 
